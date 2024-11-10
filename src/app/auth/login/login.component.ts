@@ -1,7 +1,6 @@
-// src/app/auth/login/login.component.ts
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -9,8 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email = '';
-  password = '';
+  email: string = '';
+  password: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthenticationService, private router: Router) {}
 
@@ -23,6 +23,11 @@ export class LoginComponent {
           this.router.navigate(['/user']);
         }
       });
-    }).catch(error => console.error("Login error:", error));
+    }).catch(error => {
+      this.errorMessage = error.message;
+    });
+  }
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
 }

@@ -12,6 +12,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
 import {UserModule} from "./user/user.module";
 import {CompanyModule} from "./company/company.module";
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {CompanyModule} from "./company/company.module";
     AngularFireAuthModule,
     UserModule,
     CompanyModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
