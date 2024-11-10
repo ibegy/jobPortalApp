@@ -1,1 +1,10 @@
-<p>job-list works!</p>
+<h2>Job Listings</h2>
+<input type="text" [(ngModel)]="searchTerm" placeholder="Search for jobs" (input)="searchJobs()" />
+<div *ngFor="let job of filteredJobs">
+  <h3>{{ job.role }} at {{ job.companyName }}</h3>
+  <img [src]="job.coverImage" alt="{{ job.role }}" *ngIf="job.coverImage" />
+  <p>{{ job.description }}</p>
+  <p><strong>Tech Stack:</strong> {{ job.techStack }}</p>
+  <p><strong>Deadline:</strong> {{ job.deadline }}</p>
+  <button (click)="applyToJob(job.id)">Apply</button>
+</div>

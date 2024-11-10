@@ -1,1 +1,29 @@
-<p>job-form works!</p>
+<!-- src/app/company/job-form/job-form.component.html -->
+<h2>Create a Job Posting</h2>
+<form (ngSubmit)="createJob()">
+  <div>
+    <label>Company Name</label>
+    <input type="text" [(ngModel)]="companyName" name="companyName" required />
+  </div>
+  <div>
+    <label>Role</label>
+    <input type="text" [(ngModel)]="role" name="role" required />
+  </div>
+  <div>
+    <label>Cover Image URL</label>
+    <input type="text" [(ngModel)]="coverImage" name="coverImage" />
+  </div>
+  <div>
+    <label>Description</label>
+    <textarea [(ngModel)]="description" name="description" required></textarea>
+  </div>
+  <div>
+    <label>Tech Stack</label>
+    <input type="text" [(ngModel)]="techStack" name="techStack" required />
+  </div>
+  <div>
+    <label>Application Deadline</label>
+    <input type="date" [(ngModel)]="deadline" name="deadline" required />
+  </div>
+  <button type="submit">Create Job</button>
+</form>

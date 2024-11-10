@@ -10,9 +10,9 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class AuthenticationService {
   constructor(
-    private afAuth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    public afAuth: AngularFireAuth,
   ) {}
 
   register(email: string, password: string, userType: 'user' | 'company') {

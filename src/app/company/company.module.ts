@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CompanyRoutingModule } from './company-routing.module';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { JobFormComponent } from './job-form/job-form.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { JobFormComponent } from './job-form/job-form.component';
   ],
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    CompanyRoutingModule,
+    FormsModule
   ]
 })
 export class CompanyModule { }
