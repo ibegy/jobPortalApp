@@ -1,28 +1,29 @@
-<h2>Create a Job Posting</h2>
-<form (ngSubmit)="createJob()">
-  <div>
-    <label>Company Name</label>
-    <input type="text" [(ngModel)]="companyName" name="companyName" required />
-  </div>
-  <div>
-    <label>Role</label>
-    <input type="text" [(ngModel)]="role" name="role" required />
-  </div>
-  <div>
-    <label>Cover Image URL</label>
-    <input type="text" [(ngModel)]="coverImage" name="coverImage" />
-  </div>
-  <div>
-    <label>Description</label>
-    <textarea [(ngModel)]="description" name="description" required></textarea>
-  </div>
-  <div>
-    <label>Tech Stack</label>
-    <input type="text" [(ngModel)]="techStack" name="techStack" required />
-  </div>
-  <div>
-    <label>Application Deadline</label>
-    <input type="date" [(ngModel)]="deadline" name="deadline" required />
-  </div>
-  <button type="submit">Create Job</button>
-</form>
+<!-- src/app/company/job-form/job-form.component.html -->
+<div class="job-form">
+  <button class="close-button" (click)="closeDialog()">&#10006;</button>
+  <h2>Kreiraj oglas</h2>
+  <form (ngSubmit)="createJob()" #jobForm="ngForm">
+    <div>
+      <label for="companyName">Ime tvrtke</label>
+      <input id="companyName" type="text" [(ngModel)]="companyName" name="companyName" required />
+    </div>
+    <div>
+      <label for="role">Rola</label>
+      <input id="role" type="text" [(ngModel)]="role" name="role" required />
+    </div>
+    <div>
+      <label for="description">Opis</label>
+      <textarea id="description" [(ngModel)]="description" name="description" required></textarea>
+    </div>
+    <div>
+      <label for="techStack">Tech Stack</label>
+      <input id="techStack" type="text" [(ngModel)]="techStack" name="techStack" required />
+    </div>
+    <div>
+      <label for="deadline">Rok prijave</label>
+      <input id="deadline" type="date" [(ngModel)]="deadline" name="deadline" required />
+    </div>
+    <button type="submit" [disabled]="!jobForm.valid">Submit</button>
+  </form>
+
+</div>

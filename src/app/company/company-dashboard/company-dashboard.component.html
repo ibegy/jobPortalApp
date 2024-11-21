@@ -1,1 +1,14 @@
-<p>company-dashboard works!</p>
+<div class="company-dashboard">
+  <h2>Vaši kreirani oglasi za posao</h2>
+
+  <div *ngIf="jobs.length === 0" class="no-jobs">
+    <p>Nemate kreiranih oglasa za posao</p>
+  </div>
+
+  <div *ngFor="let job of jobs" class="job-card">
+    <h3>{{ job.role }} at {{ job.companyName }}</h3>
+    <p>{{ job.description }}</p>
+    <p><strong>Tech Stack:</strong> {{ job.techStack }}</p>
+    <p><strong>Deadline:</strong> {{ job.deadline }}</p>
+  </div>
+</div>

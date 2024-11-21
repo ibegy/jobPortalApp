@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { JobFormComponent } from '../../company/job-form/job-form.component';
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private overlay: Overlay
+    private overlay: Overlay,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -41,25 +43,10 @@ export class HeaderComponent implements OnInit {
       this.closeMenu();
     });
   }
-
   openJobFormModal() {
-    // Close any existing overlay
-    if (this.overlayRef) {
-      this.overlayRef.dispose();
-    }
-
-    // Create an overlay
-    this.overlayRef = this.overlay.create({
-      hasBackdrop: true,
-      backdropClass: 'modal-backdrop',
-      panelClass: 'modal-panel',
+    this.dialog.open(JobFormComponent, {
+      width: '600px',
+      disableClose: true, // Prevent closing the modal by clicking outside
     });
-
-    // Render the JobFormComponent inside the overlay
-    const portal = new ComponentPortal(JobFormComponent);
-    this.overlayRef.attach(portal);
-
-    // Close modal when backdrop is clicked
-    this.overlayRef.backdropClick().subscribe(() => this.overlayRef?.dispose());
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {AuthenticationService} from "../../services/authentication.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-job-form',
@@ -15,8 +16,10 @@ export class JobFormComponent {
   techStack = '';
   deadline = '';
 
-  constructor(private firestore: AngularFirestore, private authService: AuthenticationService) {}
-
+  constructor(private firestore: AngularFirestore, private authService: AuthenticationService, public dialogRef: MatDialogRef<JobFormComponent>) {}
+  closeDialog() {
+    this.dialogRef.close();
+  }
   async createJob() {
     try {
       // Wait for the current user to be fetched
@@ -34,9 +37,18 @@ export class JobFormComponent {
           createdBy: currentUser.uid // Use the uid from currentUser
         };
 
-        // Save the job to Firestore
-        await this.firestore.collection('jobs').add(job);
-        alert('Job created successfully!');
+        console.log(job)
+
+        this.firestore
+          .collection('jobs')
+          .add(job)
+          .then(() => {
+            console.log('Job created successfully');
+          })
+          .catch((error) => {
+            console.error('Error creating job:', error);
+          });
+
         this.resetForm();
       } else {
         alert('User is not logged in.');

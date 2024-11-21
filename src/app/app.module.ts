@@ -14,6 +14,8 @@ import {UserModule} from "./user/user.module";
 import {CompanyModule} from "./company/company.module";
 import {AuthModule} from "./auth/auth.module";
 import { HeaderComponent } from './shared/header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HeaderComponent } from './shared/header/header.component';
     AngularFireAuthModule,
     UserModule,
     CompanyModule,
-    AuthModule
+    AuthModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

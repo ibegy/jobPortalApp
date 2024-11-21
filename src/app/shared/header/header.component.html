@@ -10,13 +10,13 @@
       <ul class="nav-list">
         <!-- Show for Companies -->
         <li *ngIf="userType === 'company'" class="nav-item">
-          <a (click)="openJobFormModal()" class="nav-link">Job Form</a>
+          <a (click)="openJobFormModal()" class="nav-link">Kreiraj oglas</a>
         </li>
         <li *ngIf="userType === 'company'" class="nav-item">
-          <a routerLink="/company" class="nav-link" (click)="closeMenu()">Company Dashboard</a>
+          <a routerLink="/company" class="nav-link" (click)="closeMenu()">Dashboard Tvrtke</a>
         </li>
         <li *ngIf="userType === 'user'" class="nav-item">
-          <a routerLink="/user" class="nav-link" (click)="closeMenu()">User Dashboard</a>
+          <a routerLink="/user" class="nav-link" (click)="closeMenu()">Korisnički Dashboard</a>
         </li>
       </ul>
       <button class="logout-button" (click)="logout()">Logout</button>
