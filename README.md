@@ -6,7 +6,7 @@ Korišten je  [Angular CLI](https://github.com/angular/angular-cli) version 16.1
 
 ## Postavljanje projekta
 
-Potrebno je imati instaliran Node.js (za projekt je korištena verzija v20.10.0) te Angular. Korisne upute na linku: https://medium.com/@krishsurya1249/angular-cli-setup-guide-8ed868c68572
+Potrebno je imati instaliran Node.js (za projekt je korištena verzija v20.10.0) te Angular. Korisne upute na [linku](https://medium.com/@krishsurya1249/angular-cli-setup-guide-8ed868c68572)
 
 Pokrenuti `npm install`
 
