@@ -5,7 +5,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['../authentication.scss']
 })
 export class RegisterComponent {
   email: string = '';
@@ -21,5 +21,10 @@ export class RegisterComponent {
       .catch(error => {
         this.errorMessage = error.message;
       });
+  }
+
+  backToLogin() {
+    console.log('ovdje sam kliknbut')
+    this.router.navigate(['/login']);
   }
 }

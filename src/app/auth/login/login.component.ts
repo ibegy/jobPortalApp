@@ -5,7 +5,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['../authentication.scss']
 })
 export class LoginComponent {
   email: string = '';
@@ -19,7 +19,8 @@ export class LoginComponent {
       this.authService.getUserType().subscribe(userType => {
         if (userType === 'company') {
           this.router.navigate(['/company']);
-        } else {
+        } else if (userType === 'user') {
+          console.log('here?')
           this.router.navigate(['/user']);
         }
       });

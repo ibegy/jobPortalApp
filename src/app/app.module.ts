@@ -13,10 +13,12 @@ import {RouterModule} from "@angular/router";
 import {UserModule} from "./user/user.module";
 import {CompanyModule} from "./company/company.module";
 import {AuthModule} from "./auth/auth.module";
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

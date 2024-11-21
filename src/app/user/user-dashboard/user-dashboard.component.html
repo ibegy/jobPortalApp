@@ -1,1 +1,9 @@
-<p>user-dashboard works!</p>
+<h2>Job Listings</h2>
+<input type="text" [(ngModel)]="searchTerm" placeholder="Search for jobs" (input)="filterJobs()" />
+
+<div *ngFor="let job of filteredJobs">
+  <h3>{{ job.role }} at {{ job.companyName }}</h3>
+  <p>{{ job.description }}</p>
+  <p><strong>Tech Stack:</strong> {{ job.techStack }}</p>
+  <p><strong>Deadline:</strong> {{ job.deadline }}</p>
+</div>

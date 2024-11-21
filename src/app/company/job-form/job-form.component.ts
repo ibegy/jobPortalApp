@@ -1,4 +1,3 @@
-// src/app/company/job-form/job-form.component.ts
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {AuthenticationService} from "../../services/authentication.service";
