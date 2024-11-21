@@ -1,27 +1,16 @@
 # JobPortalApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+Ovaj kod repozitorij je projektna implementacija u sklopu kolegija Internetska platforma 
 
-## Development server
+Korišten je  [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Postavljanje projekta
 
-## Code scaffolding
+Potrebno je imati instaliran Node.js (za projekt je korištena verzija v20.10.0) te Angular. Korisne upute na linku: https://medium.com/@krishsurya1249/angular-cli-setup-guide-8ed868c68572
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pokrenuti `npm install`
 
-## Build
+Potom pokrenuti `npm start`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Za bazu i dio backend konfiguracije korišten je [Firebase](https://firebase.google.com/)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
