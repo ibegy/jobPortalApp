@@ -1,4 +1,3 @@
-// src/app/user/job-list/job-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {AuthenticationService} from "../../services/authentication.service";
@@ -18,7 +17,7 @@ export class JobListComponent implements OnInit {
   ngOnInit() {
     this.firestore.collection('jobs').valueChanges({ idField: 'id' }).subscribe(jobs => {
       this.jobs = jobs;
-      this.filteredJobs = jobs;  // Start with all jobs
+      this.filteredJobs = jobs;
     });
   }
 

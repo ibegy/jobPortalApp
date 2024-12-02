@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthenticationService} from "../../services/authentication.service";
 
@@ -7,13 +7,23 @@ import {AuthenticationService} from "../../services/authentication.service";
   templateUrl: './register.component.html',
   styleUrls: ['../authentication.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   email: string = '';
   password: string = '';
   userType: 'user' | 'company' = 'user';
   errorMessage: string = '';
 
   constructor(private authService: AuthenticationService, private router: Router) {}
+
+  ngOnInit() {
+    this.authService.getUserType().subscribe((role) => {
+      if (role === 'user') {
+        this.router.navigate(['/user']);
+      } else if (role === 'company') {
+        this.router.navigate(['/company']);
+      }
+    });
+  }
 
   register() {
     this.authService.register(this.email, this.password, this.userType)

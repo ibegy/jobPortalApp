@@ -8,9 +8,7 @@ import { AuthenticationService } from './services/authentication.service';
 })
 export class AppComponent implements OnInit {
   isLoggedIn = false;
-
   constructor(private authService: AuthenticationService) {}
-
   ngOnInit() {
     this.authService.afAuth.authState.subscribe((user) => {
       this.isLoggedIn = !!user;

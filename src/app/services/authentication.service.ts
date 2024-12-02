@@ -15,28 +15,32 @@ export class AuthenticationService {
     public afAuth: AngularFireAuth,
   ) {}
 
-  // Register a new user with email, password, and role
   register(email: string, password: string, role: 'user' | 'company') {
     return this.afAuth.createUserWithEmailAndPassword(email, password).then((result) => {
-      return this.firestore.collection('users').doc(result.user?.uid).set({
+      const userData = {
         email,
         role,
         uid: result.user?.uid,
-      });
+      };
+
+      return this.firestore
+        .collection('users')
+        .doc(result.user?.uid)
+        .set(userData)
+        .then(() => {
+          this.redirectBasedOnRole(); // Redirect after registration
+        });
     });
   }
 
-  // Log in an existing user
-  login(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+  async login(email: string, password: string) {
+    await this.afAuth
+      .signInWithEmailAndPassword(email, password);
+    return this.redirectBasedOnRole(); // Redirect based on role
   }
-
-  // Log out the current user
   logout() {
     return this.afAuth.signOut().then(() => this.router.navigate(['/login']));
   }
-
-  // Get the user type (role) of the currently logged-in user
   getUserType(): Observable<'user' | 'company' | null> {
     return this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -53,5 +57,15 @@ export class AuthenticationService {
         }
       })
     );
+  }
+
+  private redirectBasedOnRole() {
+    this.getUserType().subscribe((role) => {
+      if (role === 'user') {
+        this.router.navigate(['/user']);
+      } else if (role === 'company') {
+        this.router.navigate(['/company']);
+      }
+    });
   }
 }

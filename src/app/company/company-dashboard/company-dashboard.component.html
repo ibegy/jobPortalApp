@@ -6,9 +6,10 @@
   </div>
 
   <div *ngFor="let job of jobs" class="job-card">
-      <h3>{{ job.role }} u firmi {{ job.companyName }}</h3>
+    <h3>{{ job.role }} u firmi {{ job.companyName }}</h3>
     <p>{{ job.description }}</p>
     <p><strong>Tech Stack:</strong> {{ job.techStack }}</p>
     <p><strong>Deadline:</strong> {{ job.deadline }}</p>
+    <p><strong>Broj prijava:</strong> {{ job.applicantCount }}</p>
   </div>
 </div>

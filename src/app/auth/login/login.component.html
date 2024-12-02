@@ -1,17 +1,23 @@
-<div class="authentication-wrapper">
-  <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <div>
-      <label>Email</label>
-      <input type="email" [(ngModel)]="email" name="email" required />
-    </div>
-    <div>
-      <label>Password</label>
-      <input type="password" [(ngModel)]="password" name="password" required />
-    </div>
-    <button type="submit">Login</button>
-  </form>
-  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-  <p>Nemaš račun? Nema veze, registriraj se ovdje</p>
-  <button (click)="goToRegister()">Registriraj se</button>
+<div *ngIf="isLoading" class="loader">
+  <div class="spinner"></div>
+</div>
+<div *ngIf="!isLoading">
+  <!-- Existing register form goes here -->
+  <div class="authentication-wrapper">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div>
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password" name="password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p>Nemaš račun? Nema veze, registriraj se ovdje</p>
+    <button (click)="goToRegister()">Registriraj se</button>
+  </div>
 </div>

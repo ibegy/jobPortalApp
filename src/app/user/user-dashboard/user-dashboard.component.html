@@ -1,9 +1,29 @@
-<h2>Job Listings</h2>
-<input type="text" [(ngModel)]="searchTerm" placeholder="Search for jobs" (input)="filterJobs()" />
+<div class="job-listings">
+  <h2 class="job-listings__title">Ponuda poslova</h2>
 
-<div *ngFor="let job of filteredJobs">
-  <h3>{{ job.role }} at {{ job.companyName }}</h3>
-  <p>{{ job.description }}</p>
-  <p><strong>Tech Stack:</strong> {{ job.techStack }}</p>
-  <p><strong>Deadline:</strong> {{ job.deadline }}</p>
+  <div class="job-listings__search">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Pretražite poslove po ključnim riječima"
+      (input)="searchJobs()"
+      class="job-listings__search-input"
+    />
+  </div>
+
+  <div *ngFor="let job of filteredJobs" class="job-listings__card">
+    <div class="job-listings__content">
+      <h3 class="job-listings__role">{{ job.role }} at {{ job.companyName }}</h3>
+      <p class="job-listings__description">{{ job.description }}</p>
+      <p class="job-listings__tech-stack"><strong>Tech Stack:</strong> {{ job.techStack }}</p>
+      <p class="job-listings__deadline"><strong>Rok prijave:</strong> {{ job.deadline }}</p>
+      <button
+        [disabled]="job.hasApplied"
+        (click)="applyToJob(job.id)"
+        class="job-listings__apply-button"
+      >
+        {{ job.hasApplied ? 'Već ste se prijavili' : 'Prijavite se' }}
+      </button>
+    </div>
+  </div>
 </div>
