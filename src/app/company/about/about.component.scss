@@ -1,0 +1,79 @@
+@import "../../../assets/variables";
+@import "../../../assets/mixins";
+
+.about-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: $white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: $dark-grey;
+
+  .about-header {
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: 2rem;
+      color: $dark-red;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: $dark-grey;
+    }
+  }
+
+  .about-content {
+    .tips-section {
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 1.5rem;
+        color: $dark-red;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style-type: disc;
+        margin: 0 0 0 20px;
+
+        li {
+          font-size: 1rem;
+          line-height: 1.5;
+          margin-bottom: 10px;
+
+          strong {
+            color: $dark-grey;
+          }
+        }
+      }
+    }
+
+    .promo-video-section {
+
+      h2 {
+        font-size: 1.5rem;
+        color: $dark-red;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        color: $dark-grey;
+      }
+
+      .video-wrapper {
+        iframe {
+          max-width: 100%;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
