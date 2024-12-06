@@ -1,18 +1,12 @@
 @import "../../../assets/variables";
 @import "../../../assets/mixins";
 
-
 footer {
-  background-color: #2c3e50;
+  background-color: $dark-grey;
   color: white;
   text-align: center;
   padding: 1rem 0;
   box-shadow: 0 -2px 4px rgba($dark-grey, 0.1);
-
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
 
   &-content {
     max-width: 800px;

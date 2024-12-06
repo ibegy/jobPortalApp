@@ -28,7 +28,7 @@ export class AuthenticationService {
         .doc(result.user?.uid)
         .set(userData)
         .then(() => {
-          this.redirectBasedOnRole(); // Redirect after registration
+          this.redirectBasedOnRole();
         });
     });
   }
@@ -36,7 +36,7 @@ export class AuthenticationService {
   async login(email: string, password: string) {
     await this.afAuth
       .signInWithEmailAndPassword(email, password);
-    return this.redirectBasedOnRole(); // Redirect based on role
+    return this.redirectBasedOnRole();
   }
   logout() {
     return this.afAuth.signOut().then(() => this.router.navigate(['/login']));
@@ -45,14 +45,12 @@ export class AuthenticationService {
     return this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
-          // Retrieve the role field from Firestore
           return this.firestore
             .collection('users')
             .doc(user.uid)
             .valueChanges()
             .pipe(map((data: any) => data?.role || null));  // Retrieve the 'role' field
         } else {
-          // Return an observable with `null` if no user is logged in
           return of(null);
         }
       })

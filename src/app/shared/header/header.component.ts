@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
   openJobFormModal() {
     this.dialog.open(JobFormComponent, {
       width: '600px',
-      disableClose: true, // Prevent closing the modal by clicking outside
+      disableClose: false
     });
   }
 }

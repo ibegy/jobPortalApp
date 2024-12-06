@@ -1,11 +1,10 @@
-// src/app/company/company-dashboard/company-dashboard.component.ts
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthenticationService } from '../../services/authentication.service';
 import {lastValueFrom} from "rxjs";
 
 export interface Job {
-  id: string; // Firestore document ID
+  id: string;
   role: string;
   companyName: string;
   description: string;
@@ -20,13 +19,13 @@ export interface Job {
   styleUrls: ['./company-dashboard.component.scss']
 })
 export class CompanyDashboardComponent implements OnInit {
-  jobs: Job[] = []; // Strongly typed array of jobs
-  loading = true; // Add a loading state for the dashboard
+  jobs: Job[] = [];
+  loading = true;
 
   constructor(
     private firestore: AngularFirestore,
     private authService: AuthenticationService,
-    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {

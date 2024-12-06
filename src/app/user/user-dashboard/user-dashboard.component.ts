@@ -46,7 +46,7 @@ export class UserDashboardComponent implements OnInit {
         )
         .get()
         .subscribe(applications => {
-          job.hasApplied = !applications.empty; // Mark as applied if there are matching documents
+          job.hasApplied = !applications.empty;
         });
     });
   }

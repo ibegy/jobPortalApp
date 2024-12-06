@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {AuthenticationService} from "../../services/authentication.service";
-import {MatDialogRef} from "@angular/material/dialog";
+import { MatDialogRef } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-job-form',
@@ -22,10 +22,8 @@ export class JobFormComponent {
   }
   async createJob() {
     try {
-      // Wait for the current user to be fetched
       const currentUser = await this.authService.afAuth.currentUser;
 
-      // Ensure currentUser exists before accessing uid
       if (currentUser) {
         const job = {
           companyName: this.companyName,
@@ -34,7 +32,7 @@ export class JobFormComponent {
           description: this.description,
           techStack: this.techStack,
           deadline: this.deadline,
-          createdBy: currentUser.uid // Use the uid from currentUser
+          createdBy: currentUser.uid
         };
 
         console.log(job)

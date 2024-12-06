@@ -32,18 +32,15 @@ export class JobListComponent implements OnInit {
 
   async applyToJob(jobId: string) {
     try {
-      // Wait for the current user to be fetched
       const currentUser = await this.authService.afAuth.currentUser;
 
-      // Ensure currentUser exists before accessing uid
       if (currentUser) {
         const application = {
           jobId: jobId,
-          userId: currentUser.uid, // Use the uid from currentUser
+          userId: currentUser.uid,
           appliedAt: new Date()
         };
 
-        // Save the application to Firestore
         await this.firestore.collection('applications').add(application);
         alert('Application submitted successfully!');
       } else {

@@ -15,8 +15,14 @@
         <li *ngIf="userType === 'company'" class="nav-item">
           <a routerLink="/company" class="nav-link" (click)="closeMenu()">Dashboard Tvrtke</a>
         </li>
+        <li *ngIf="userType === 'company'" class="nav-item">
+          <a routerLink="/company/about" class="nav-link" (click)="closeMenu()">O proizvodu</a>
+        </li>
         <li *ngIf="userType === 'user'" class="nav-item">
           <a routerLink="/user" class="nav-link" (click)="closeMenu()">Korisnički Dashboard</a>
+        </li>
+        <li *ngIf="userType === 'user'" class="nav-item">
+          <a routerLink="/user/cv" class="nav-link" (click)="closeMenu()">Moj životopis</a>
         </li>
       </ul>
       <button class="logout-button" (click)="logout()">Logout</button>
