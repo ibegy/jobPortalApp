@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
   }
 
   backToLogin() {
-    console.log('ovdje sam kliknbut')
     this.router.navigate(['/login']);
   }
 }
